@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5072735CF70AFFD9578849CC /* Pods_ColorEachDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EED3B100B7B3B26FE7C4AF4 /* Pods_ColorEachDay.framework */; };
 		FD36839024906C9500C845AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36838F24906C9500C845AE /* AppDelegate.swift */; };
 		FD36839224906C9500C845AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36839124906C9500C845AE /* SceneDelegate.swift */; };
 		FD36839424906C9500C845AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36839324906C9500C845AE /* ViewController.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EED3B100B7B3B26FE7C4AF4 /* Pods_ColorEachDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColorEachDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45AB58C9D75D298E4479F580 /* Pods-ColorEachDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorEachDay.release.xcconfig"; path = "Target Support Files/Pods-ColorEachDay/Pods-ColorEachDay.release.xcconfig"; sourceTree = "<group>"; };
+		610E1E9C2360190B8F08B9D2 /* Pods-ColorEachDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColorEachDay.debug.xcconfig"; path = "Target Support Files/Pods-ColorEachDay/Pods-ColorEachDay.debug.xcconfig"; sourceTree = "<group>"; };
 		FD36838C24906C9500C845AE /* ColorEachDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorEachDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD36838F24906C9500C845AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD36839124906C9500C845AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5072735CF70AFFD9578849CC /* Pods_ColorEachDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6133262076AC560E453DF48A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EED3B100B7B3B26FE7C4AF4 /* Pods_ColorEachDay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E466C36A9B5C3DF1B1731436 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				610E1E9C2360190B8F08B9D2 /* Pods-ColorEachDay.debug.xcconfig */,
+				45AB58C9D75D298E4479F580 /* Pods-ColorEachDay.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FD36838324906C9500C845AE = {
 			isa = PBXGroup;
 			children = (
 				FD36838E24906C9500C845AE /* ColorEachDay */,
 				FD36838D24906C9500C845AE /* Products */,
+				E466C36A9B5C3DF1B1731436 /* Pods */,
+				6133262076AC560E453DF48A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD3683A324906C9600C845AE /* Build configuration list for PBXNativeTarget "ColorEachDay" */;
 			buildPhases = (
+				06D195DAEF529CDAD78DBC70 /* [CP] Check Pods Manifest.lock */,
 				FD36838824906C9500C845AE /* Sources */,
 				FD36838924906C9500C845AE /* Frameworks */,
 				FD36838A24906C9500C845AE /* Resources */,
+				0D8BFDA17DBD3D5100B86C73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06D195DAEF529CDAD78DBC70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ColorEachDay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D8BFDA17DBD3D5100B86C73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorEachDay/Pods-ColorEachDay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColorEachDay/Pods-ColorEachDay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ColorEachDay/Pods-ColorEachDay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FD36838824906C9500C845AE /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		FD3683A424906C9600C845AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 610E1E9C2360190B8F08B9D2 /* Pods-ColorEachDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +374,7 @@
 		};
 		FD3683A524906C9600C845AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45AB58C9D75D298E4479F580 /* Pods-ColorEachDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
