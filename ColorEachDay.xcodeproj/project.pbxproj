@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		FD36839A24906C9500C845AE /* ColorEachDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD36839824906C9500C845AE /* ColorEachDay.xcdatamodeld */; };
 		FD36839C24906C9600C845AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD36839B24906C9600C845AE /* Assets.xcassets */; };
 		FD36839F24906C9600C845AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD36839D24906C9600C845AE /* LaunchScreen.storyboard */; };
+		FD40A77E2494539F00EF8029 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A77D2494539F00EF8029 /* DateHeader.swift */; };
+		FD6F18CB249071380003FB20 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F18CA249071380003FB20 /* DateCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		FD36839B24906C9600C845AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD36839E24906C9600C845AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD3683A024906C9600C845AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD40A77D2494539F00EF8029 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
+		FD6F18CA249071380003FB20 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,6 @@
 				610E1E9C2360190B8F08B9D2 /* Pods-ColorEachDay.debug.xcconfig */,
 				45AB58C9D75D298E4479F580 /* Pods-ColorEachDay.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,8 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				FD36838F24906C9500C845AE /* AppDelegate.swift */,
+				FD6F18CA249071380003FB20 /* DateCell.swift */,
 				FD36839124906C9500C845AE /* SceneDelegate.swift */,
 				FD36839324906C9500C845AE /* ViewController.swift */,
+				FD40A77D2494539F00EF8029 /* DateHeader.swift */,
 				FD36839524906C9500C845AE /* Main.storyboard */,
 				FD36839B24906C9600C845AE /* Assets.xcassets */,
 				FD36839D24906C9600C845AE /* LaunchScreen.storyboard */,
@@ -210,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD40A77E2494539F00EF8029 /* DateHeader.swift in Sources */,
 				FD36839424906C9500C845AE /* ViewController.swift in Sources */,
+				FD6F18CB249071380003FB20 /* DateCell.swift in Sources */,
 				FD36839024906C9500C845AE /* AppDelegate.swift in Sources */,
 				FD36839224906C9500C845AE /* SceneDelegate.swift in Sources */,
 				FD36839A24906C9500C845AE /* ColorEachDay.xcdatamodeld in Sources */,
