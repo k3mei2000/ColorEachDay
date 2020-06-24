@@ -17,6 +17,7 @@
 		FD36839F24906C9600C845AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD36839D24906C9600C845AE /* LaunchScreen.storyboard */; };
 		FD40A77E2494539F00EF8029 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD40A77D2494539F00EF8029 /* DateHeader.swift */; };
 		FD6F18CB249071380003FB20 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F18CA249071380003FB20 /* DateCell.swift */; };
+		FDDA0EDF24A2A9DC0001AF0D /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDA0EDE24A2A9DC0001AF0D /* ColorPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FD3683A024906C9600C845AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD40A77D2494539F00EF8029 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		FD6F18CA249071380003FB20 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		FDDA0EDE24A2A9DC0001AF0D /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FD36839324906C9500C845AE /* ViewController.swift */,
 				FD40A77D2494539F00EF8029 /* DateHeader.swift */,
 				FD36839524906C9500C845AE /* Main.storyboard */,
+				FDDA0EDE24A2A9DC0001AF0D /* ColorPickerViewController.swift */,
 				FD36839B24906C9600C845AE /* Assets.xcassets */,
 				FD36839D24906C9600C845AE /* LaunchScreen.storyboard */,
 				FD3683A024906C9600C845AE /* Info.plist */,
@@ -218,6 +221,7 @@
 				FD40A77E2494539F00EF8029 /* DateHeader.swift in Sources */,
 				FD36839424906C9500C845AE /* ViewController.swift in Sources */,
 				FD6F18CB249071380003FB20 /* DateCell.swift in Sources */,
+				FDDA0EDF24A2A9DC0001AF0D /* ColorPickerViewController.swift in Sources */,
 				FD36839024906C9500C845AE /* AppDelegate.swift in Sources */,
 				FD36839224906C9500C845AE /* SceneDelegate.swift in Sources */,
 				FD36839A24906C9500C845AE /* ColorEachDay.xcdatamodeld in Sources */,
