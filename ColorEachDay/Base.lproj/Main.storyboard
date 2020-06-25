@@ -203,9 +203,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-Y0-lhx">
-                                <rect key="frame" x="29" y="200" width="356" height="396"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-Y0-lhx">
+                                <rect key="frame" x="29" y="202" width="356" height="394"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56X-iO-b3G">
                                 <rect key="frame" x="165" y="676" width="84" height="40"/>
@@ -222,6 +222,26 @@
                                     <constraint firstAttribute="height" constant="40" id="pHw-DO-lMA"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T87-RC-vh5">
+                                <rect key="frame" x="147" y="132" width="120" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmq-SR-6ZJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="8bV-YK-cBB"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl9-a7-w5q">
+                                        <rect key="frame" x="60" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gpT-9G-4WM"/>
+                                    <constraint firstAttribute="width" constant="120" id="nVj-CF-pbf"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -232,13 +252,15 @@
                             <constraint firstItem="gbA-jb-leL" firstAttribute="leading" secondItem="Llm-z4-WpI" secondAttribute="leading" constant="29" id="MAM-iy-PMF"/>
                             <constraint firstItem="Llm-z4-WpI" firstAttribute="trailing" secondItem="gbA-jb-leL" secondAttribute="trailing" constant="29" id="MwC-g8-Gba"/>
                             <constraint firstItem="gbA-jb-leL" firstAttribute="centerX" secondItem="1M5-lE-oQV" secondAttribute="centerX" id="Nqe-H8-mgT"/>
+                            <constraint firstItem="T87-RC-vh5" firstAttribute="centerX" secondItem="1M5-lE-oQV" secondAttribute="centerX" id="RVs-SF-ZSW"/>
                             <constraint firstItem="Llm-z4-WpI" firstAttribute="bottom" secondItem="56X-iO-b3G" secondAttribute="bottom" constant="20" id="SlL-Pp-3rD"/>
                             <constraint firstItem="56X-iO-b3G" firstAttribute="top" secondItem="gbA-jb-leL" secondAttribute="bottom" constant="20" id="UMH-aJ-Y4F"/>
                             <constraint firstItem="gKL-Y0-lhx" firstAttribute="leading" secondItem="Llm-z4-WpI" secondAttribute="leading" constant="29" id="bXz-8u-Hmf"/>
+                            <constraint firstItem="gKL-Y0-lhx" firstAttribute="top" secondItem="T87-RC-vh5" secondAttribute="bottom" constant="10" id="buC-vp-FZu"/>
+                            <constraint firstItem="T87-RC-vh5" firstAttribute="top" secondItem="0ug-yj-Arl" secondAttribute="bottom" constant="12" id="cmy-dq-rwD"/>
                             <constraint firstItem="0ug-yj-Arl" firstAttribute="trailing" secondItem="Llm-z4-WpI" secondAttribute="trailing" id="hor-Xx-aGH"/>
                             <constraint firstItem="0ug-yj-Arl" firstAttribute="top" secondItem="Llm-z4-WpI" secondAttribute="top" constant="20" id="qYx-jO-JzV"/>
                             <constraint firstItem="Llm-z4-WpI" firstAttribute="trailing" secondItem="gKL-Y0-lhx" secondAttribute="trailing" constant="29" id="wiT-ms-bP7"/>
-                            <constraint firstItem="gKL-Y0-lhx" firstAttribute="top" secondItem="0ug-yj-Arl" secondAttribute="bottom" constant="80" id="xjb-5p-PNa"/>
                             <constraint firstItem="gKL-Y0-lhx" firstAttribute="centerX" secondItem="1M5-lE-oQV" secondAttribute="centerX" id="yYG-yl-QK8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Llm-z4-WpI"/>
@@ -246,6 +268,8 @@
                     <connections>
                         <outlet property="brightnessSliderView" destination="gbA-jb-leL" id="L4O-xy-4rR"/>
                         <outlet property="colorPickerView" destination="gKL-Y0-lhx" id="izb-8v-RRs"/>
+                        <outlet property="newColorView" destination="dl9-a7-w5q" id="dxc-F3-rdf"/>
+                        <outlet property="previousColorView" destination="pmq-SR-6ZJ" id="N3T-qn-OZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIA-6Y-Sex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
