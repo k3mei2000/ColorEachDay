@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import JTAppleCalendar
 import ChromaColorPicker
 
@@ -16,14 +17,18 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet var brightnessSliderView: UIView!
     @IBOutlet var previousColorView: UIView!
     @IBOutlet var newColorView: UIView!
+    @IBOutlet var confirmButton: UIButton!
     
     var colorPicker: ChromaColorPicker!
     var brightnessSlider: ChromaBrightnessSlider!
+
+    var date: Date!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupColorPicker()
+        confirmButton.addTarget(self, action: #selector(confirmColor(_:)), for: .touchUpInside)
         
         
     }
@@ -65,6 +70,37 @@ class ColorPickerViewController: UIViewController {
     
     @objc func updateBrightness(_ brightnessSlider: ChromaBrightnessSlider) {
         newColorView.backgroundColor = brightnessSlider.currentColor
+    }
+    
+    @objc func confirmColor(_ confirmButton: UIButton) {
+        previousColorView.backgroundColor = newColorView.backgroundColor
+        
+        saveColor();
+    }
+    
+    func saveColor() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        managedContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        
+        let entity = NSEntityDescription.entity(forEntityName: "DateColor", in: managedContext)!
+        
+        let storeDate = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        
+        storeDate.setValue(date!, forKeyPath: "date")
+        storeDate.setValue("Green", forKeyPath: "color")
+        
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
     }
     
 }

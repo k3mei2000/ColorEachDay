@@ -8,24 +8,75 @@
 
 import UIKit
 import JTAppleCalendar
+import CoreData
 
 class ViewController: UIViewController {
     
     @IBOutlet var calendarView: JTACMonthView!
     let formatter = DateFormatter()
+    var container: NSPersistentContainer!
+    var currentDate: Date?
+    var dateColorPairs: [NSManagedObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        container = NSPersistentContainer(name: "ColorEachDay")
+        
+        container.loadPersistentStores { storeDescription, error in
+            if let error = error {
+                print("Unresolved error \(error)")
+            }
+        }
         setupCalendarView()
+        //populateDataSource()
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        /*
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "DateColor")
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(batchDeleteRequest)
+        } catch let error as NSError {
+            print("Could not delete. \(error), \(error.userInfo)")
+        }
+        */
+        
+        
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DateColor")
+        
+        do {
+            dateColorPairs = try managedContext.fetch(fetchRequest)
+            for dateColor in dateColorPairs {
+                //managedContext.delete(dateColor)
+                print(dateColor.value(forKeyPath: "date") as? Date)
+                print(dateColor.value(forKeyPath: "color") as? String)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        
+        
     }
     
     func setupCalendarView() {
         calendarView.scrollDirection = .vertical
         calendarView.scrollingMode = .none
         calendarView.showsVerticalScrollIndicator = false
-        
         calendarView.cellSize = CGFloat(Double(self.view.frame.size.width)/6);
     }
     
@@ -38,6 +89,7 @@ class ViewController: UIViewController {
         }
         cell.dateLabel.text = cellState.text
         handleCellTextColor(cell: cell, cellState: cellState)
+        handleCellBackgroundColor(cell: cell, cellState: cellState)
         handleCellSelected(cell: cell, cellState: cellState)
     }
     
@@ -49,23 +101,46 @@ class ViewController: UIViewController {
         }
     }
     
+    func handleCellBackgroundColor(cell: DateCell, cellState: CellState) {
+        //let dateString =
+    }
+    
     func handleCellSelected(cell: DateCell, cellState: CellState) {
         if cellState.isSelected {
-            //cell.selectedView.layer.cornerRadius = 13
-            //cell.selectedView.backgroundColor = UIColor.blue
-            //cell.selectedView.isHidden = false
             if (cellState.dateBelongsTo == .thisMonth) {
-                transitionToColorPickerViewController();
+                currentDate = cellState.date
+                performSegue(withIdentifier: "InputColor", sender: nil)
             }
-        } else {
-            cell.selectedView.isHidden = true;
         }
     }
     
+    /*
     func transitionToColorPickerViewController() {
         let colorPickerViewController = self.storyboard?.instantiateViewController(identifier: "ColorPickerViewController") as! ColorPickerViewController
         self.navigationController?.pushViewController(colorPickerViewController, animated: true)
     }
+    */
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let nextVC = segue.destination as? ColorPickerViewController {
+            nextVC.date = currentDate
+        }
+    }
+    
+    /*
+    func saveContext() {
+        if container.viewContext.hasChanges {
+            do {
+                try container.viewContext.save()
+            } catch {
+                print("An error occurred while saving: \(error)")
+            }
+        }
+    }
+    */
+    
 
 }
 
@@ -74,9 +149,10 @@ extension ViewController: JTACMonthViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         let startDate = formatter.date(from: "2020 01 01")!
-        let endDate = Date()
+        let endDate = formatter.date(from: "2020 12 01")!
         return ConfigurationParameters(startDate: startDate, endDate: endDate, generateInDates: .forAllMonths, generateOutDates: .off)
     }
+    
 }
 
 extension ViewController: JTACMonthViewDelegate {
