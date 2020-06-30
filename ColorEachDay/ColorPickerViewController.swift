@@ -84,7 +84,7 @@ class ColorPickerViewController: UIViewController {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        managedContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        managedContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         let entity = NSEntityDescription.entity(forEntityName: "DateColor", in: managedContext)!
         
@@ -92,7 +92,7 @@ class ColorPickerViewController: UIViewController {
         
         
         storeDate.setValue(date!, forKeyPath: "date")
-        storeDate.setValue("Green", forKeyPath: "color")
+        storeDate.setValue(newColorView.backgroundColor?.toHexString(), forKeyPath: "color")
         
         
         do {
