@@ -23,13 +23,14 @@ class ColorPickerViewController: UIViewController {
     var brightnessSlider: ChromaBrightnessSlider!
 
     var date: Date!
+    var colorString: String!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupColorPicker()
         confirmButton.addTarget(self, action: #selector(confirmColor(_:)), for: .touchUpInside)
-        
+        previousColorView.backgroundColor = UIColor(hexString: colorString)
         
     }
     
